@@ -1,0 +1,25 @@
+package ru.mirea.ryazhevilya.intentapp;
+
+import static android.content.ContentValues.TAG;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+public class MainActivity2 extends AppCompatActivity {
+    private TextView tvTransfer;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        tvTransfer = findViewById(R.id.textViewTransfer);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            String value = extras.getString("intentKey");
+            tvTransfer.setText(String.format("КВАДРАТ ЗНАЧЕНИЯ МОЕГО НОМЕРА В СПИСКЕ ЕСТЬ %d, а текущее время:" +
+                    "%s", 20 * 20, value));
+        }
+    }
+}
